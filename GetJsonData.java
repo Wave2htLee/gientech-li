@@ -1,4 +1,4 @@
-//package org.wave;
+package org.wave;
 
 public class GetJsonData {
 
@@ -114,16 +114,16 @@ public class GetJsonData {
      *
      */
     public static int getKeyIndexInJsonString(String json,String key,int startIndex) {
-        int index = 0;
+        //int index = 0;
         while (true) {
-            index = json.indexOf(key,index);
-            if(index < 0) {
+            startIndex = json.indexOf(key,startIndex);
+            if(startIndex < 0) {
                 System.out.println("did‘nt match key : " + key);
             }
-            if (json.charAt(index -1 ) == '"' && json.charAt(index + key.length()) == '"' ) {
+            if (json.charAt(startIndex -1 ) == '"' && json.charAt(startIndex + key.length()) == '"' ) {
                 break;
             } else {
-                index = index + key.length();
+                startIndex = startIndex + key.length();
             }
         }
         return startIndex;
